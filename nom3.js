@@ -73,6 +73,33 @@ function getMostPopularWord(text)
     return result;
 }
 
+//----------------------------------------------------------------------------//
+// подстрока
+function getSubstring(text)
+{
+	for (let i = 0; i < text.length; i++)
+	{
+		substring = text.substring(0, i);
+		if (text.length % i != 0)
+			continue;
+		let equalResult = true;
+		for (let j = 0; j < text.length / i; j++)
+		{
+			if (substring != text.substring(j * i, j * i + i))
+			{
+				equalResult = false;
+				break;
+			}
+		}
+		if (equalResult)
+		{
+			console.log('result: %s', substring);
+			console.log('result: %d', i);
+			return i;
+		}
+	}
+	return text.length;
+}
 //var binaryText = process.argv[2];
 //console.log('result: %d', trueBracket(binaryText));
 //console.log('result: %s', getMostPopularWord(binaryText));
